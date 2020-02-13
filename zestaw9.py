@@ -1,5 +1,5 @@
 
-# Zadania 9.4 i 9.7
+# Zadania 9.2 i 9.7
 
 import unittest
 
@@ -72,6 +72,40 @@ class SingleList:
             prev = curr
             curr = next
         self.head = prev
+        
+    def search(self, value):
+        curr = self.head
+        found = False
+        while found is False:
+            if curr.data == value:
+                found = True
+            else:
+                curr = curr.next
+        if curr is None:
+            return("Value not in list")
+        return curr
+        
+        
+    def find_min(self):
+        min = self.head
+        p = min.next
+        while p.next is not None:
+            if p.data< min.data:
+                min = p
+            else:
+                p = p.next
+        return min.data
+        
+        
+    def find_max(self):
+        max = self.head
+        p = max.next
+        while p.next is not None:
+            if p.data>max.data:
+                max = p
+            else:
+                p = p.next
+        return max.data
 
 class TreeNode:
 
