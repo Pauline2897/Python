@@ -31,7 +31,14 @@ class Circle:
 
     def move(self, x, y):
         return self.pt + Point(x,y)
-
+"""
+do funkcji cover:
+obliczam nowy srodek okregu
+sprawdzam, ktory z promieni jest wiekszy, self.radius, czy other.radius
+biore pod uwage okrag o wiekszym promieniu
+obliczam odleglosc miedzy nowym srodkiem a srodkiem wiekszego okregu
+do tej odleglosci dodaje dluzszy promien
+"""
     def cover(self, other):
         new_x = abs(self.pt.x - other.pt.x)/2
         new_y = abs(self.pt.y - other.pt.y)/2
