@@ -29,16 +29,28 @@ def quick_sort(L):
     return quick_sort(less) + equal + quick_sort(greater)
 
 
+
+
+
 def mediana_sort(L, left, right):
     if left >= right:
         return None
-    L = quick_sort(L)
+    new_l = []
+    for i in range(left,right+1):
+        new_l.append(L[i])
+
+    new_l = quick_sort(new_l)
+    right = (len(new_l))
+
     if right%2 != 0:
         srodek = right//2
-        mediana = L[srodek]
+        mediana = new_l[srodek]
         return mediana
     else:
         srodek = right/2
-        mediana = (L[srodek - 1]+ L[srodek])/2
+        mediana = (float(new_l[srodek - 1]+new_l[srodek]))/2
         return mediana
+
+
+
 
