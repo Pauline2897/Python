@@ -29,7 +29,13 @@ def quick_sort(L):
 def moda(L, left, right):
     if left >= right:
         return None
-    L = quick_sort(L)
+
+    new_l = []
+    for i in range(left, right + 1):
+        new_l.append(L[i])
+
+    new_l = quick_sort(new_l)
+    right = (len(new_l))
 
     moda = None
     liczebnosc1 = 0
@@ -37,7 +43,7 @@ def moda(L, left, right):
     liczebnosc2 = 1
 
     for i in range(right - 1):
-        if L[i] == L[i+1]:
+        if new_l[i] == new_l[i+1]:
             liczebnosc2 += 1
             # na biezaco uaktualniamy najlepszego kandydata
             if liczebnosc2 > liczebnosc1:  # jest lepszy kandydat
@@ -46,5 +52,7 @@ def moda(L, left, right):
         else:
             liczebnosc2 = 1
 
-    return L[moda]
+    return new_l[moda]
+
+
 
